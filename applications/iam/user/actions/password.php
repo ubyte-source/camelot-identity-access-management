@@ -23,7 +23,7 @@ use applications\iam\user\forms\Password;
 
 use extensions\Navigator;
 
-use configurations\mail\Sendgrid as Configuration;
+use configurations\mail\SendGrid as Configuration;
 
 Policy::mandatories('iam/user/action/password');
 

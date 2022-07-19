@@ -29,7 +29,7 @@ use applications\iam\group\database\Vertex as Group;
 
 use extensions\Navigator;
 
-use configurations\mail\Sendgrid as Configuration;
+use configurations\mail\SendGrid as Configuration;
 
 Policy::mandatories('iam/user/action/create');
 
