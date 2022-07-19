@@ -1,7 +1,7 @@
 {
-	"name": "energia-europa/energia-europa-iam",
+	"name": "energia-source/camelot-identity-access-management",
 	"type": "project",
-	"description": "Energia Europa Identity and Access Management",
+	"description": "Camelot - Identity Access Management",
 	"keywords": [
 		"ubyte",
 		"energia europa",
@@ -10,7 +10,7 @@
 		"sso",
 		"single sign on"
 	],
-	"homepage": "https://source.cloud.google.com/energia-cloud-camelot/energia-europa-iam",
+	"homepage": "https://github.com/energia-source/camelot-identity-access-management",
 	"license": "MIT",
 	"authors": [
 		{
