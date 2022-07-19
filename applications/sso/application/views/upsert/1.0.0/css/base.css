@@ -1,0 +1,23 @@
+div#main { transition: all 0.2s ease-out; z-index: 1024; }
+div#main { position: fixed; top: 50px; right: 0; bottom: 0; left: 250px; }
+
+div#main.menu-crush { left: 50px; }
+
+div#main div#wrapper { position: absolute; top: 63px; left: 0; bottom: 0; right: 0; overflow-y: auto; }
+div#main div#wrapper div#content { padding: 24px; }
+div#main div#content div.buttons-form { position: relative; margin-top: 1rem; margin-bottom: 1rem; text-align: right; }
+div#main div#content div.buttons-form button { margin: 8px; margin-right: 4px; }
+div#main div#content div.buttons-form button:last-child { margin-right: 0 !important; }
+
+form div.content div.file { text-align: center; }
+form div.content div.file div.input { display: none; margin: 8px; }
+
+form div.content div.file div.image { position: relative; width: 128px; height: 128px; line-height: 128px; margin: 0 auto; padding: 10px; background-color: #f1f1f1; border-radius: 50%; color: #333; text-align: center; cursor: pointer; }
+form div.content div.file div.image { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis; }
+form div.content div.file div.image { background-position: center; background-size: cover; background-repeat: no-repeat; }
+form div.content div.file div.image i.image-placeholder { font-size: 100px; }
+form div.content div.file div.image i.image-placeholder.hide { visibility: hidden; }
+
+form div.content div.file div.image div.dialog { display: none; margin-top: -27px; padding: 7px; background-color: rgba(0, 0, 0, 0.6); color: #fff; text-align: center; }
+form div.content div.file div.image div.dialog i { color: #fff; }
+form div.content div.file div.image.active:hover div.dialog { display: block; }

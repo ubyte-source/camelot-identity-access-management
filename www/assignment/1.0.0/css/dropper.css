@@ -1,0 +1,21 @@
+div.dropper { position: relative; display: none; background: #fafafa; margin-top: 32px; border: 2px dashed #cecece; }
+div.dropper.show { display: block; }
+div.dropper ul.list li { display: none; padding: 24px; }
+div.dropper ul.list li.text { display: block; text-align: center; font-size: 64px; color: #999999; }
+
+div.dropper ul.list li.dropper-info { display: table-cell; vertical-align: middle; text-align: center; font-weight: 700; color: #999; font-size: 1.5vw; }
+
+div.alert { margin-bottom: 16px; padding: 16px 8px; border: 1px solid transparent; border-radius: 2px; }
+div.alert i { margin-right: 8px }
+
+div.alert.alert-info {background-color: #d1ecf1; border-color: #bee5eb; }
+div.alert.alert-info span { color: #0c5460; }
+div.alert.alert-info i { color: #0c5460; }
+
+div.alert.alert-danger { background-color: #f8d7da; border-color: #f5c6cb; }
+div.alert.alert-danger span { color: #721c24; }
+div.alert.alert-danger i { color: #f44336; }
+
+div.alert.alert-success { background-color: #d4edda;border-color: #c3e6cb; }
+div.alert.alert-success span { color: #155724; }
+div.alert.alert-success i { color: #155724; }

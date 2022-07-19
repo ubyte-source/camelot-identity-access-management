@@ -1,0 +1,14 @@
+div.preloader { position: absolute; top: 0; left: 0; bottom: 0; right: 0; background-color: rgba(240,240,240, 0.4); z-index: 256; }
+div.preloader div.spinner { position: absolute; left: 50%; top: 50%; width: 70px; margin: auto; overflow: hidden; text-align: center; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%); }
+div.preloader div.spinner div { display: inline-block; width: 8px; height: 8px; background-color: #397be6; border-radius: 100%; -webkit-animation: form-preloader-spinner-delay 1.4s infinite ease-in-out both; animation: form-preloader-spinner-delay 1.4s infinite ease-in-out both; }
+div.preloader div.spinner div.bounce-0 { -webkit-animation-delay: -.32s; animation-delay: -.32s; }
+div.preloader div.spinner div.bounce-1 { -webkit-animation-delay: -.16s; animation-delay: -.16s; }
+
+@-webkit-keyframes form-preloader-spinner-delay {
+  0%,80%,100%{ -webkit-transform: scale(0); }
+  40%{ -webkit-transform: scale(1.0); }
+}
+@keyframes form-preloader-spinner-delay {
+  0%,80%,100%{ -webkit-transform: scale(0); transform: scale(0); }
+  40%{ -webkit-transform: scale(1.0); transform: scale(1.0); }
+}

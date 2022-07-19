@@ -1,0 +1,8 @@
+#assignment-tooltip-container{opacity:0;text-align:center;color:#fff;background:rgba(0,0,0,.6);position:absolute;z-index:16777270;padding:15px;pointer-events:none;border-radius:5px;margin-top:10px;transition:opacity .5s ease-in-out}
+#assignment-tooltip-container.top{margin-top:20px}
+#assignment-tooltip-container.show{opacity:1;margin-top:10px;pointer-events:all}
+#assignment-tooltip-container.show.top{margin-top:10px}
+#assignment-tooltip-container:after{width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid rgba(0,0,0,.6);content:'';position:absolute;left:50%;bottom:-10px;margin-left:-10px}
+#assignment-tooltip-container.top:after{border-top-color:transparent;border-bottom:10px solid rgba(0,0,0,.6);top:-20px;bottom:auto}
+#assignment-tooltip-container.left:after{left:10px;margin:0}
+#assignment-tooltip-container.right:after{right:10px;left:auto;margin:0}

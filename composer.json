@@ -1,0 +1,135 @@
+{
+	"name": "energia-europa/energia-europa-iam",
+	"type": "project",
+	"description": "Energia Europa Identity and Access Management",
+	"keywords": [
+		"ubyte",
+		"energia europa",
+		"iam",
+		"identity and access management",
+		"sso",
+		"single sign on"
+	],
+	"homepage": "https://source.cloud.google.com/energia-cloud-camelot/energia-europa-iam",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Paolo Fabris",
+			"email": "support@ubyte.it",
+			"homepage": "https://www.ubyte.it/",
+			"role": "Developer"
+		},
+		{
+			"name": "Gabriele Luigi Masero",
+			"email": "support@ubyte.it",
+			"homepage": "https://www.ubyte.it/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=7.3",
+		"ext-mbstring": "*",
+		"ext-zip": "*",
+		"ext-fileinfo": "*",
+		"sendgrid/sendgrid": "~7",
+		"knight/armor": "3.2.2",
+		"knight/artifact-iam": "2.6.0",
+		"knight/artifact-redis": "1.7.0",
+		"knight/artifact-entity": "5.9.6",
+		"knight/artifact-entity-adapter-arangodb": "1.8.1",
+		"widget/sidepanel": "5.0.0",
+		"widget/bumblebee": "2.0.0",
+		"widget/nav": "5.0.0",
+		"widget/tabs": "5.0.0",
+		"widget/modal": "4.0.0",
+		"widget/menu": "4.0.0",
+		"widget/infinite": "3.1.0",
+		"widget/header": "4.0.0",
+		"widget/form": "6.0.1",
+		"widget/button": "4.0.1",
+		"widget/asset": "6.0.2",
+		"widget/info": "4.0.0",
+		"widget/xhr": "3.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"applications\\": "applications/",
+			"configurations\\": "configurations/",
+			"extensions\\": "extensions/"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/knight-armor"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/knight-artifact-iam"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/knight-artifact-redis"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/knight-artifact-entity"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/knight-artifact-entity-adapter-arangodb"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-sidepanel"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-nav"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-modal"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-menu"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-tabs"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-infinite"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-bumblebee"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-header"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-form"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-button"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-info"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-xhr"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/energia-source/widget-asset"
+		}
+	]
+}

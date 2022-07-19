@@ -1,0 +1,9 @@
+ul.list li.item div.main.assign i.assign { position: absolute; top: 0; bottom: 0; width: 39px; line-height: 40px; text-align: center; border-radius: 2px; }
+ul.list li.item div.main.assign i.assign { border-right: 1px solid #cecece; transition: transform .2s ease; cursor: pointer; }
+ul.list li.item div.main.assign i.assign, ul.list li.item div.main.assign i.assign.disabled:hover { background-color: #f1f1f1; }
+ul.list li.item div.main.assign i.assign.disabled { color: #e5e5e5 !important; cursor: not-allowed !important; }
+ul.list li.item div.main.assign i.assign.show { display: inline-block; }
+ul.list li.item div.main.assign i.assign.bug { color: #c53727 !important; }
+ul.list li.item div.main.assign i.assign:hover { background-color: #e5e5e5; }
+
+ul.list li.item div.main.assign div.header { left: 40px !important; }

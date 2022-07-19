@@ -1,0 +1,14 @@
+div#main, div#content { transition: all 0.2s ease-out; }
+div#main { position: absolute; top: 50px; right: 0; left: 250px; bottom: 0; overflow: hidden; }
+div#main div#content { right: 0; left: 0; position: absolute; top: 63px; bottom: 0; overflow-y: scroll;}
+div#main div#content div.wrapper { padding: 24px; padding-bottom: 0; }
+
+div#main div#content div.infinite.container { position: absolute; top: 233px; right: 0; bottom: 0; left: 24px; }
+div#main div#content div.infinite.container.resize { transition: all 0.2s linear; }
+
+div#main div#content div.scroll { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow-y: scroll; }
+div#main.menu-crush { left: 50px; }
+
+div#main div.sidepanel { top: -1px; border-top: 1px solid #dbdbdb; }
+div#main div.sidepanel div.content div#setting div.search, div#main div.sidepanel div.content div#setting div.list { margin-left: 8px; }
+div#main div.sidepanel div.content div#setting div.search { margin-right: 8px; }

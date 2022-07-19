@@ -1,0 +1,4 @@
+html, body { height: 100%; width: 100%; text-align: center; }
+body div.title { font-size: 40px; color: #666666; font-weight: 700; margin: 40px auto; text-align: center; font-family: Arial, Verdana, sans-serif; }
+body div.layout { background-image: url(../images/dribbble.gif); background-repeat: no-repeat; background-position: center; height: 400px; }
+body div.form-buttons { width: 400px; padding: 16px; margin: auto; text-align: center; border-top: 3px solid #667c93; }

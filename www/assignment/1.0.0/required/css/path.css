@@ -1,0 +1,3 @@
+ul.list li.item div.info.on div.path { margin-bottom: 8px; }
+ul.list li.item div.info.on div.path ul.list li { padding: 4px 0; }
+ul.list li.item div.info.on div.path ul.list li.ellipsis { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis; }

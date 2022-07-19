@@ -1,0 +1,34 @@
+ul.list li.item div.main div.action { position: absolute; top: 0; right: 0; bottom: 0; }
+
+ul.list li.item div.main div.action i { display: none; margin-top: 8px; margin-right: 8px; cursor: pointer; }
+ul.list li.item div.main div.action i.disabled { color: #f5f5f5; cursor: not-allowed; }
+ul.list li.item div.main div.action i.show { display: inline-block; }
+
+ul.list li.item div.main div.action i.expand { border-radius: 50%; transition: transform .2s ease; cursor: pointer; }
+ul.list li.item div.main div.action i.expand:hover { background-color: #f1f1f1; }
+
+ul.list li.item div.main div.action i.bug { color: #c53727 !important; animation: assignment-action-bug 1s linear infinite; }
+ul.list li.item div.main div.action i.spin { animation: assignment-action-spin 1s linear infinite; }
+
+ul.list li.item div.main div.action input { display: none; }
+
+ul.list li.item.ghost > div.main div.action i.disabled { color: #cccccc; }
+ul.list li.item.ghost > div.main div.action i.expand { color: #000; }
+
+@-webkit-keyframes assignment-action-bug {
+    30% {
+        -webkit-transform: rotate(10deg);
+    }
+    70% {
+        -webkit-transform: rotate(-10deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes assignment-action-spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,19 @@
+div#main, div#content { transition: all .2s ease-out; overflow-y: auto; }
+div#main { position: fixed; top: 0; left: 0; bottom: 0; right: 0; }
+div#main { background: url('https://public.energia-europa.com/logo/background.jpg'); background-size: cover; }
+
+div#main div#wrapper { display: table; position: absolute; height: 100vh; z-index: 16777250; }
+div#main div#wrapper div#content { display: table-cell; vertical-align: middle; }
+div#main div#wrapper div#content form { padding: 24px; }
+div#main div#wrapper div#content form.hide { display: none;}
+div#main div#wrapper div#content div#login, div#main div#wrapper div#content div#register { background-color: #f1f1f1; border-bottom-left-radius: 1em; border-bottom-right-radius: 1em;  }
+div#main div#wrapper div#content div.tabs, div#main div#wrapper div#content div.tabs ul li:first-child { border-top-left-radius: 1em; }
+div#main div#wrapper div#content div.tabs, div#main div#wrapper div#content div.tabs ul li:last-child { border-top-right-radius: 1em; }
+
+div#main div#wrapper div.buttons-form { position: relative; margin: 0 0 10px 0; padding: 20px; text-align: right; }
+div#main div#wrapper div#content div.buttons-form button { width: 100%; }
+div#main div#wrapper div#content div.buttons-form button.split { width:49%; }
+div#main div#wrapper div#content div.buttons-form button.split:last-child { margin-left: 2%; }
+
+div.modal article.content p#img { text-align: center; }
+div.modal article.content p#img img { padding: 1em; }

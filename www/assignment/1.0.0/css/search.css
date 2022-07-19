@@ -1,0 +1,15 @@
+div.sidepanel { top: 63px !important; }
+div.policies.researcher { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+div.policies.researcher div.result { position: absolute; top: 50px; left: 0; bottom: 0; right: 0; padding: 8px; border-top: 1px solid #f1f1f1; overflow-y: scroll; }
+div.policies.researcher div.result ul.list li.item.hide { display: none; }
+div.policies.researcher div.result ul.list li.item:last-child { margin-bottom: 24px; }
+div.policies.researcher div.result ul.list li.item div.main.assign i.assign { cursor: grab; }
+div.policies.researcher div.result ul.list li.item div.main.assign i.assign:active { cursor: grabbing; }
+
+div.policies.researcher div.search.action { margin: 6px; background-color: #f1f1f1; border: 1px solid #cecece; border-radius: 2px; }
+div.policies.researcher div.search.action i { position: absolute; padding: 4px; margin-top: 1px; border-right: 1px dotted #cecece; }
+div.policies.researcher div.search.action div.field { margin-left: 32px; padding: 0 8px; background-color: #fff; }
+div.policies.researcher div.search.action div.field input { width: 100%; padding: 8px 0; outline: none; }
+
+div.policies.researcher div.result ul.list li.item.not-found { text-align: center; padding: 8px; }
+div.policies.researcher div.result ul.list li.item.not-found span { font-weight: 700; }

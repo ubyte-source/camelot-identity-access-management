@@ -1,0 +1,28 @@
+div.group { position: relative; margin-top: 30px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 0 0 1pt #999; }
+
+div.group div.image { position: relative; min-height: 160px; }
+div.group div.image div.wrapper, div.group div.image div.wrapper div.container { position: absolute; left: 0; right: 0; border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+div.group div.image div.wrapper { top: 0; bottom: 0; background-color: #999; border-right: 1px solid #999999; }
+div.group div.image div.wrapper div.container { background-repeat: no-repeat; background-size: cover; }
+div.group div.image div.wrapper div.container { text-align: center; top: 50%; -webkit-transform: translate(0, -50%); transform: translate(0, -50%); }
+div.group div.image div.wrapper div.container i { color: #fff; font-size: 90px; }
+
+div.group div.info { padding: 10px; color: #333; }
+div.group div.info h2 { font-size: 26px; }
+div.group div.info h4 { font-size: 18px; color: #999; }
+
+div.group div.info h5.title { font-weight: bolder; text-transform: uppercase; }
+
+div.group div.info ul.line { margin-top: 12px; }
+div.group div.info ul.line li.container { margin-bottom: 5px; line-height: 36px;; }
+div.group div.info ul.line li.container ul.list { margin-top: 8px; }
+div.group div.info ul.line li.container ul.list li.label, div.group div.info ul.line li.container ul.list li.label span { display: inline-block; }
+div.group div.info ul.line li.container ul.list li.label, div.group div.info ul.line li.container ul.list li.label span.initials { border-radius: 19px; }
+div.group div.info ul.line li.container ul.list li.label { margin-right: 8px; padding-right: 8px; }
+div.group div.info ul.line li.container ul.list li.label { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis; }
+div.group div.info ul.line li.container ul.list li.label span { padding: 8px !important; color: #fff; font-size: 15px; }
+div.group div.info ul.line li.container ul.list li.label span.initials { width: 24px; text-transform: uppercase; font-weight: bolder; text-align: center; }
+
+@media only screen and (max-width: 1080px) {
+    div.group div.image { display: none; }
+}

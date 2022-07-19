@@ -1,0 +1,20 @@
+div.policies { position: relative; }
+div.policies ul.list { height: 100%; width: 100%; list-style-type: none; }
+div.policies ul.list li.item { margin-top: 8px; }
+div.policies ul.list li.item { border: 1px solid #cecece; background-color: #fff; border-radius: 2px; }
+div.policies ul.list li.item:hover { border-color: #999999; }
+div.policies ul.list li.item:hover > div.main div.header span { font-weight: bolder; }
+
+div.policies ul.list li.item div.main { position: relative; height: 40px; line-height: 40px; }
+div.policies ul.list li.item div.main div.header { position: absolute; left: 0; top: 0; right: 0; bottom: 0; line-height: inherit; }
+div.policies ul.list li.item div.main div.header { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis; }
+div.policies ul.list li.item div.main div.header span { padding: 0 8px; font-size: 16px; color: #666666; }
+
+div.policies ul.list li.item div.info { padding: 8px; border-top: 1px dashed #cecece; border-radius: 2px; display: none; }
+div.policies ul.list li.item div.info.on { display: block; }
+div.policies ul.list li.item div.info.on p.description { margin: 24px 0; }
+
+div.policies ul.list li.item.ghost { background-color: #f5f5f5 !important; border-color: #cecece !important; opacity: .5; border-style: dashed; cursor: alias; }
+div.policies ul.list li.item.ghost > div.main div.header span { font-weight: normal !important; text-decoration: line-through; }
+
+div.policies ul.list li.item.disabled div.main div.header span { text-decoration: line-through; }
