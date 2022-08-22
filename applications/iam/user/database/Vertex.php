@@ -42,6 +42,9 @@ class Vertex extends EntityVertex
 	const SERVICE = 'service';
 	const HUMAN = 'human';
 	const OAUTH = 'oauth';
+	const CONTACT = 'contact';
+	
+	const INFO = 'Info';
 
 	const SSO_LOGIN_PAGE = 'iam/user/login';
 
@@ -57,6 +60,106 @@ class Vertex extends EntityVertex
 
 	protected function initialize() : void
 	{
+		$phone_number_prefix_validator = Validation::factory('Enum');
+		$phone_number_prefix_validator->addAssociative('0039', array('icon' => 'flag-icon flag-icon-it'));
+		$phone_number_prefix_validator->addAssociative('0032', array('icon' => 'flag-icon flag-icon-be'));
+		$phone_number_prefix_validator->addAssociative('0031', array('icon' => 'flag-icon flag-icon-nl'));
+		$phone_number_prefix_validator->addAssociative('0034', array('icon' => 'flag-icon flag-icon-es'));
+		$phone_number_prefix_validator->addAssociative('00358', array('icon' => 'flag-icon flag-icon-fi'));
+		$phone_number_prefix_validator->addAssociative('00386', array('icon' => 'flag-icon flag-icon-si'));
+		$phone_number_prefix_validator->addAssociative('0041', array('icon' => 'flag-icon flag-icon-ch'));
+		$phone_number_prefix_validator->addAssociative('0043', array('icon' => 'flag-icon flag-icon-at'));
+		$phone_number_prefix_validator->addAssociative('0046', array('icon' => 'flag-icon flag-icon-se'));
+		$phone_number_prefix_validator->addAssociative('0048', array('icon' => 'flag-icon flag-icon-pl'));
+		$phone_number_prefix_validator->addAssociative('00972', array('icon' => 'flag-icon flag-icon-il'));
+		$phone_number_prefix_validator->addAssociative('0090', array('icon' => 'flag-icon flag-icon-tr'));
+		$phone_number_prefix_validator->addAssociative('0033', array('icon' => 'flag-icon flag-icon-fr'));
+		$phone_number_prefix_validator->addAssociative('00372', array('icon' => 'flag-icon flag-icon-ee'));
+		$phone_number_prefix_validator->addAssociative('0040', array('icon' => 'flag-icon flag-icon-ro'));
+		$phone_number_prefix_validator->addAssociative('00421', array('icon' => 'flag-icon flag-icon-sk'));
+		$phone_number_prefix_validator->addAssociative('00371', array('icon' => 'flag-icon flag-icon-lv'));
+		$phone_number_prefix_validator->addAssociative('0091', array('icon' => 'flag-icon flag-icon-in'));
+		$phone_number_prefix_validator->addAssociative('00964', array('icon' => 'flag-icon flag-icon-ir'));
+		$phone_number_prefix_validator->addAssociative('00962', array('icon' => 'flag-icon flag-icon-jo'));
+		$phone_number_prefix_validator->addAssociative('00351', array('icon' => 'flag-icon flag-icon-pt'));
+		$phone_number_prefix_validator->addAssociative('00370', array('icon' => 'flag-icon flag-icon-lt'));
+		$phone_number_prefix_validator->addAssociative('00994', array('icon' => 'flag-icon flag-icon-az'));
+		$phone_number_prefix_validator->addAssociative('001', array('icon' => 'flag-icon flag-icon-us'));
+		$phone_number_prefix_validator->addAssociative('00423', array('icon' => 'flag-icon flag-icon-li'));
+		$phone_number_prefix_validator->addAssociative('0081', array('icon' => 'flag-icon flag-icon-jp'));
+		$phone_number_prefix_validator->addAssociative('00350', array('icon' => 'flag-icon flag-icon-gi'));
+		$phone_number_prefix_validator->addAssociative('0063', array('icon' => 'flag-icon flag-icon-ph'));
+		$phone_number_prefix_validator->addAssociative('0086', array('icon' => 'flag-icon flag-icon-cn'));
+		$phone_number_prefix_validator->addAssociative('00213', array('icon' => 'flag-icon flag-icon-dz'));
+		$phone_number_prefix_validator->addAssociative('007', array('icon' => 'flag-icon flag-icon-kz'));
+		$phone_number_prefix_validator->addAssociative('0062', array('icon' => 'flag-icon flag-icon-id'));
+		$phone_number_prefix_validator->addAssociative('00441624', array('icon' => 'flag-icon flag-icon-im'));
+		$phone_number_prefix_validator->addAssociative('0065', array('icon' => 'flag-icon flag-icon-sg'));
+		$phone_number_prefix_validator->addAssociative('00965', array('icon' => 'flag-icon flag-icon-kw'));
+		$phone_number_prefix_validator->addAssociative('00385', array('icon' => 'flag-icon flag-icon-hr'));
+		$phone_number_prefix_validator->addAssociative('0044', array('icon' => 'flag-icon flag-icon-gb'));
+		$phone_number_prefix_validator->addAssociative('00212', array('icon' => 'flag-icon flag-icon-ma'));
+		$phone_number_prefix_validator->addAssociative('00298', array('icon' => 'flag-icon flag-icon-fo'));
+		$phone_number_prefix_validator->addAssociative('00420', array('icon' => 'flag-icon flag-icon-cz'));
+		$phone_number_prefix_validator->addAssociative('00353', array('icon' => 'flag-icon flag-icon-ie'));
+		$phone_number_prefix_validator->addAssociative('00974', array('icon' => 'flag-icon flag-icon-qa'));
+		$phone_number_prefix_validator->addAssociative('0060', array('icon' => 'flag-icon flag-icon-my'));
+		$phone_number_prefix_validator->addAssociative('00971', array('icon' => 'flag-icon flag-icon-ae'));
+		$phone_number_prefix_validator->addAssociative('00374', array('icon' => 'flag-icon flag-icon-am'));
+		$phone_number_prefix_validator->addAssociative('00381', array('icon' => 'flag-icon flag-icon-rs'));
+		$phone_number_prefix_validator->addAssociative('00378', array('icon' => 'flag-icon flag-icon-sm'));
+		$phone_number_prefix_validator->addAssociative('0047', array('icon' => 'flag-icon flag-icon-no'));
+		$phone_number_prefix_validator->addAssociative('00389', array('icon' => 'flag-icon flag-icon-mk'));
+		$phone_number_prefix_validator->addAssociative('00852', array('icon' => 'flag-icon flag-icon-hk'));
+		$phone_number_prefix_validator->addAssociative('0094', array('icon' => 'flag-icon flag-icon-lk'));
+		$phone_number_prefix_validator->addAssociative('0084', array('icon' => 'flag-icon flag-icon-vn'));
+		$phone_number_prefix_validator->addAssociative('0055', array('icon' => 'flag-icon flag-icon-br'));
+		$phone_number_prefix_validator->addAssociative('003906', array('icon' => 'flag-icon flag-icon-va'));
+		$phone_number_prefix_validator->addAssociative('00375', array('icon' => 'flag-icon flag-icon-by'));
+		$phone_number_prefix_validator->addAssociative('001876', array('icon' => 'flag-icon flag-icon-jm'));
+		$phone_number_prefix_validator->addAssociative('0054', array('icon' => 'flag-icon flag-icon-ar'));
+		$phone_number_prefix_validator->addAssociative('00995', array('icon' => 'flag-icon flag-icon-ge'));
+		$phone_number_prefix_validator->addAssociative('00376', array('icon' => 'flag-icon flag-icon-ad'));
+		$phone_number_prefix_validator->addAssociative('00595', array('icon' => 'flag-icon flag-icon-py'));
+		$phone_number_prefix_validator->addAssociative('001787', array('icon' => 'flag-icon flag-icon-pr'));
+		$phone_number_prefix_validator->addAssociative('001939', array('icon' => 'flag-icon flag-icon-pr'));
+		$phone_number_prefix_validator->addAssociative('0082', array('icon' => 'flag-icon flag-icon-kr'));
+		$phone_number_prefix_validator->addAssociative('0052', array('icon' => 'flag-icon flag-icon-mx'));
+		$phone_number_prefix_validator->addAssociative('0056', array('icon' => 'flag-icon flag-icon-cl'));
+		$phone_number_prefix_validator->addAssociative('00373', array('icon' => 'flag-icon flag-icon-md'));
+		$phone_number_prefix_validator->addAssociative('0061', array('icon' => 'flag-icon flag-icon-au'));
+		$phone_number_prefix_validator->addAssociative('00356', array('icon' => 'flag-icon flag-icon-mt'));
+		$phone_number_prefix_validator->addAssociative('0049', array('icon' => 'flag-icon flag-icon-de'));
+		$phone_number_prefix_validator->addAssociative('0066', array('icon' => 'flag-icon flag-icon-th'));
+		$phone_number_prefix_validator->addAssociative('00357', array('icon' => 'flag-icon flag-icon-cy'));
+		$phone_number_prefix_validator->addAssociative('0027', array('icon' => 'flag-icon flag-icon-za'));
+		$phone_number_prefix_validator->addAssociative('0095', array('icon' => 'flag-icon flag-icon-mm'));
+		$phone_number_prefix_validator->addAssociative('00966', array('icon' => 'flag-icon flag-icon-sa'));
+		$phone_number_prefix_validator->addAssociative('00387', array('icon' => 'flag-icon flag-icon-ba'));
+		$phone_number_prefix_validator->addAssociative('00977', array('icon' => 'flag-icon flag-icon-np'));
+		$phone_number_prefix_validator->addAssociative('00380', array('icon' => 'flag-icon flag-icon-ua'));
+		$phone_number_prefix_validator->addAssociative('00268', array('icon' => 'flag-icon flag-icon-sz'));
+		$phone_number_prefix_validator->addAssociative('0045', array('icon' => 'flag-icon flag-icon-dk'));
+		$phone_number_prefix_validator->addAssociative('00352', array('icon' => 'flag-icon flag-icon-lu'));
+		$phone_number_prefix_validator->addAssociative('00355', array('icon' => 'flag-icon flag-icon-al'));
+		$phone_number_prefix_validator->addAssociative('00886', array('icon' => 'flag-icon flag-icon-tw'));
+		$phone_number_prefix_validator->addAssociative('00359', array('icon' => 'flag-icon flag-icon-bg'));
+		$phone_number_prefix_validator->addAssociative('00377', array('icon' => 'flag-icon flag-icon-mc'));
+		$phone_number_prefix_validator->addAssociative('00507', array('icon' => 'flag-icon flag-icon-pa'));
+		$phone_number_prefix_validator->addAssociative('00216', array('icon' => 'flag-icon flag-icon-tn'));
+		$phone_number_prefix_validator->addAssociative('001', array('icon' => 'flag-icon flag-icon-ca'));
+		$phone_number_prefix_validator->addAssociative('0020', array('icon' => 'flag-icon flag-icon-eg'));
+		$phone_number_prefix_validator->addAssociative('0064', array('icon' => 'flag-icon flag-icon-nz'));
+		$phone_number_prefix_validator->addAssociative('00968', array('icon' => 'flag-icon flag-icon-om'));
+		$phone_number_prefix_validator->addAssociative('00218', array('icon' => 'flag-icon flag-icon-ly'));
+		$phone_number_prefix_validator->addAssociative('00354', array('icon' => 'flag-icon flag-icon-is'));
+		$phone_number_prefix_validator->addAssociative('0030', array('icon' => 'flag-icon flag-icon-gr'));
+		$phone_number_prefix_validator->addAssociative('0036', array('icon' => 'flag-icon flag-icon-hu'));
+		$phone_number_prefix_validator->addAssociative('007', array('icon' => 'flag-icon flag-icon-ru'));
+		$phone_number_prefix_validator->addAssociative('00382', array('icon' => 'flag-icon flag-icon-me'));
+		$phone_number_prefix_validator_keys = $phone_number_prefix_validator->getKeys();
+		$phone_number_prefix_validator_keys = '/^(?!(' . implode('|', $phone_number_prefix_validator_keys) . '))\w+$/i';
+
 		$key = $this->getField(Arango::KEY);
 		$key_validator = Validation::factory('Regex');
 		$key_validator->setRegex('/\d+/');
@@ -131,11 +234,64 @@ class Vertex extends EntityVertex
 		$email->addUniqueness('email');
 		$email->setRequired();
 
+		
+		$phone_number_prefix = $this->addField('phone_number_prefix');
+		$phone_number_prefix->setPatterns($phone_number_prefix_validator);
+		$phone_number_prefix->getRow()->setName('mobile');
+		
+		$phone_number = $this->addField('phone_number');
+		$phone_number_pattern = Validation::factory('ShowString');
+		$phone_number_pattern->setMin(1);
+		$phone_number_pattern->setClosureMagic(function (Field $field) use ($phone_number_prefix) {
+			$field_readmode = $field->getReadMode();
+			$field_safemode = $field->getSafeMode();
+			if (true === $field_readmode || $field_safemode === false) return true;
+
+			$field_value = $field->getValue();
+			if (is_string($field_value)
+				&& strlen($field_value)) $phone_number_prefix->setRequired();
+
+			return true;
+		});
+		$phone_number->setPatterns($phone_number_pattern);
+		$phone_number->getRow()->setName('mobile');
+		$phone_number->addUniqueness(static::INFO);
+		
+		$phone_number_office_prefix = $this->addField('phone_number_office_prefix');
+		$phone_number_office_prefix->setPatterns($phone_number_prefix_validator);
+		$phone_number_office_prefix->getRow()->setName('internal');
+				
+		$phone_number_office = $this->addField('phone_number_office');
+		$phone_number_office_pattern = Validation::factory('ShowString');
+		$phone_number_office_pattern->setMin(1);
+		$phone_number_office_pattern->setClosureMagic(function (Field $field) use ($phone_number_office_prefix) {
+			$field_readmode = $field->getReadMode();
+			$field_safemode = $field->getSafeMode();
+			if (true === $field_readmode || $field_safemode === false) return true;
+
+			$field_value = $field->getValue();
+			if (is_string($field_value)
+				&& strlen($field_value)) $phone_number_office_prefix->setRequired();
+
+			return true;
+		});
+		$phone_number_office->setPatterns($phone_number_office_pattern);
+		$phone_number_office->getRow()->setName('internal');
+		$phone_number_office->addUniqueness(static::INFO);
+		
+		$phone_number_office_internal = $this->addField('phone_number_office_internal');
+		$phone_number_office_internal_pattern = Validation::factory('ShowString');
+		$phone_number_office_internal_pattern->setMin(1);
+		$phone_number_office_internal->setPatterns($phone_number_office_internal_pattern);
+		$phone_number_office_internal->getRow()->setName('internal');
+		$phone_number_office_internal->addUniqueness(static::INFO);
+
 		$type = $this->addField('type');
 		$type_validator = Validation::factory('Enum');
 		$type_validator->addAssociative(static::SERVICE, array('icon' => 'material-icons manage_accounts'));
 		$type_validator->addAssociative(static::HUMAN, array('icon' => 'material-icons account_circle'));
 		$type_validator->addAssociative(static::OAUTH, array('icon' => 'material-icons apps_outage'));
+		$type_validator->addAssociative(static::CONTACT, array('icon' => 'material-icons contact_mail'));
 		$type->setPatterns($type_validator);
 		$type->setRequired();
 

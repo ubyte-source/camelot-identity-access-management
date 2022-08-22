@@ -196,7 +196,7 @@ if (User::SERVICE !== $user_child_type) {
 
 $registered = new User();
 $registered->setSafeMode(false)->setReadMode(true);
-$registered_value = reset($registered_query_insert_response);
+$registered_value = reset($user_query_insert_response);
 $registered->setFromAssociative($registered_value, $registered_value);
 $registered_value = $registered->getAllFieldsValues(false, false);
 
@@ -208,13 +208,10 @@ Session::generate($user, 60);
 IAMRequest::instance(Session::getAuthorization());
 
 $assign_api = 'iam/user/assignment' . chr(47) . $registered->getField(User::KEY)->getValue();
-foreach (AUTOASSIGN as $type => $value) {
-    $invoke = preg_filter('/^.*$/', $type . chr(47) . '$0', $value);
-    foreach ($invoke as $item)
-        Gateway::callAPI(IAMConfiguration::getApplicationBasename(), $assign_api, array(
-            Vertex::ID => $item
-        ));
-}
+foreach (AUTOASSIGN as $type => $value) foreach (preg_filter('/^.*$/', $type . chr(47) . '$0', $value) as $item)
+    Gateway::callAPI(IAMConfiguration::getApplicationBasename(), $assign_api, array(
+        Vertex::ID => $item
+    ));
 
 Output::concatenate(Output::APIDATA, $registered_value);
 Output::print(true);

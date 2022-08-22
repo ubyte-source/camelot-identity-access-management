@@ -96,6 +96,13 @@
 
     window.elements.main.appendChild(widgets.nav.out());
 
+    for (let item = 0; item < window.page.tables.user.fields.length; item++) {
+        if ('phone_number_prefix' !== window.page.tables.user.fields[item].name
+            && 'phone_number_office_prefix' !== window.page.tables.user.fields[item].name) continue;
+            
+        window.page.tables.user.fields[item].required = true;
+    }
+
     widgets.form = new Form();
     widgets.flatpickr = {};
 

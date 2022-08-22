@@ -236,7 +236,12 @@
 	for (let item = 0; item < window.page.tables.register.fields.length; item++)
 		if (window.page.tables.register.fields[item].protected !== true) {
 			widgets.form.register.addInput(window.page.tables.register.fields[item]);
-			let parameter = Page.getUrlParameter(window.page.tables.register.fields[item].name);
+			let parameter_return = Page.getUrlParameter('return_url'),
+				parameter_return_decoded = typeof parameter_return !== 'undefined'
+					? atob(parameter_return).substring(1 + atob(parameter_return).indexOf(String.fromCharCode(63)))
+					: undefined;
+
+			let parameter = Page.getUrlParameter(window.page.tables.register.fields[item].name, parameter_return_decoded);
 			if (parameter)
 				widgets.form.register.set(window.page.tables.register.fields[item].name, parameter);
 		}

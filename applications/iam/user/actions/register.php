@@ -13,11 +13,12 @@ use Knight\armor\Language;
 use applications\iam\user\forms\Register;
 use applications\iam\user\database\Vertex as User;
 use applications\iam\user\database\edges\Session;
-use applications\sso\oauth\database\Oauth;
+use applications\sso\oauth\database\Vertex as Oauth;
 
 use extensions\Navigator;
 
 const EXPIRE = 60;
+const CREATE = 'iam/user/create';
 const ACCOUNT = 'account';
 const ACCOUNT_OWNER = 'owner';
 
@@ -73,7 +74,8 @@ $domain_check = Oauth::check($domain);
 if (false === empty($domain_check))
     $user->getField('type')->setValue(User::OAUTH);
 
-$user = Gateway::callAPI(IAMConfiguration::getApplicationBasename(), 'iam/user/create', (array)$user->getAllFieldsValues(false, false));
+$user = Gateway::callAPI(IAMConfiguration::getApplicationBasename(), CREATE,
+    (array)$user->getAllFieldsValues(false, false));
 
 $registered = new User();
 $registered->setSafeMode(false)->setReadMode(true);
