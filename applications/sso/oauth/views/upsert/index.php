@@ -9,9 +9,7 @@ use Knight\armor\Composer;
 use Knight\armor\Language;
 
 use applications\iam\user\database\Vertex as User;
-
 use applications\iam\user\database\edges\UserToPolicy;
-
 use applications\sso\oauth\forms\Upsert;
 
 use extensions\Navigator;

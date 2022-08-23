@@ -9,10 +9,8 @@ use Knight\armor\Composer;
 use Knight\armor\Language;
 
 use applications\iam\user\database\Vertex as User;
-
 use applications\iam\user\database\edges\UserToPolicy;
-
-use applications\sso\cluster\forms\Upsert;
+use applications\sso\cluster\forms\Cluster;
 
 use extensions\Navigator;
 
@@ -21,7 +19,7 @@ $navigator = Navigator::get();
 $user_policies = UserToPolicy::getPolicies();
 $user_policies = array_column($user_policies, 'route');
 
-$cluster = new Upsert();
+$cluster = new Cluster();
 $cluster = $cluster->human();
 
 $whoami = User::getWhoami(true);

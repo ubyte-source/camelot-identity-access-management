@@ -9,9 +9,7 @@ use Knight\armor\Composer;
 use Knight\armor\Language;
 
 use applications\iam\user\database\Vertex as User;
-
 use applications\iam\user\database\edges\UserToPolicy;
-use applications\iam\user\forms\Upsert;
 
 use extensions\Navigator;
 
@@ -20,7 +18,7 @@ $navigator = Navigator::get();
 $user_policies = UserToPolicy::getPolicies();
 $user_policies = array_column($user_policies, 'route');
 
-$user = new Upsert();
+$user = new User();
 $user = $user->human();
 
 $whoami = User::getWhoami(true);

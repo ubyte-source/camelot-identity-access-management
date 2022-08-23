@@ -40,9 +40,9 @@ class Vertex extends EntityVertex
 	const ROOT = 'root@energia-europa.com';
 	const COLLECTION = 'User';
 	const SERVICE = 'service';
+	const CONTACT = 'contact';
 	const HUMAN = 'human';
 	const OAUTH = 'oauth';
-	const CONTACT = 'contact';
 	
 	const INFO = 'Info';
 
@@ -234,7 +234,6 @@ class Vertex extends EntityVertex
 		$email->addUniqueness('email');
 		$email->setRequired();
 
-		
 		$phone_number_prefix = $this->addField('phone_number_prefix');
 		$phone_number_prefix->setPatterns($phone_number_prefix_validator);
 		$phone_number_prefix->getRow()->setName('mobile');

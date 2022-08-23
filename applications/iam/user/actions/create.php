@@ -61,6 +61,7 @@ $user_query_select_statement = $user_query_select->getStatement();
 $user_query_select_statement->setExpect(1)->setHideResponse(true);
 
 $user_child = $user->useEdge(UserToUser::getName())->vertex();
+$user_child->getField('type')->getValue(User::CONTACT);
 $user_child_uploads = array_column($_FILES, 'tmp_name');
 $user_child_uploads_keys = array_keys($_FILES);
 $user_child_uploads = array_combine($user_child_uploads_keys, $user_child_uploads);
@@ -123,7 +124,8 @@ if (!!$errors = array_merge($user_child_warnings, $check_user_constrain_warnings
 
 $user_child_type = $user_child->getField('type')->getValue();
 $user_child_password = password();
-if (User::OAUTH !== $user_child_type) $user_child->getField('password')->setSafeModeDetached(false)->setValue($user_child_password);
+if (User::OAUTH !== $user_child_type  && User::CONTACT === $user_child_type)
+    $user_child->getField('password')->setSafeModeDetached(false)->setValue($user_child_password);
 
 $check_user_constrain_query = ArangoDB::start($check_user_constrain);
 $check_user_constrain_query_select = $check_user_constrain_query->select();
@@ -168,7 +170,16 @@ $user_query_insert_response = $user_query_insert->run();
 if (null === $user_query_insert_response
     || empty($user_query_insert_response)) Output::print(false);
 
+$registered = new User();
+$registered->setSafeMode(false)->setReadMode(true);
+$registered_value = reset($user_query_insert_response);
+$registered->setFromAssociative($registered_value, $registered_value);
+$registered_value = $registered->getAllFieldsValues(false, false);
+Output::concatenate(Output::APIDATA, $registered_value);
+
+if (User::CONTACT === $user_child_type) Output::print(true);
 if (User::SERVICE !== $user_child_type) {
+
     Language::setSpeech($user_child->getField('language')->getValue());
 
     $user_query_insert_values = $user_child->getAllFieldsValues(false, false);
@@ -194,12 +205,6 @@ if (User::SERVICE !== $user_child_type) {
     }
 }
 
-$registered = new User();
-$registered->setSafeMode(false)->setReadMode(true);
-$registered_value = reset($user_query_insert_response);
-$registered->setFromAssociative($registered_value, $registered_value);
-$registered_value = $registered->getAllFieldsValues(false, false);
-
 $user = new User();
 $user->getField('email')->setProtected(false)->setRequired(true)->setValue(User::ROOT);
 
@@ -213,5 +218,4 @@ foreach (AUTOASSIGN as $type => $value) foreach (preg_filter('/^.*$/', $type . c
         Vertex::ID => $item
     ));
 
-Output::concatenate(Output::APIDATA, $registered_value);
 Output::print(true);

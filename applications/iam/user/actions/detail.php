@@ -14,7 +14,6 @@ use ArangoDB\entity\common\Arango;
 use applications\iam\user\database\Vertex as User;
 use applications\iam\user\database\edges\UserToUser;
 use applications\iam\policy\database\Vertex as Policy;
-use applications\iam\user\forms\Matrioska;
 
 use extensions\Navigator;
 
@@ -75,11 +74,11 @@ $user_child_query_select_response = $user_child_query_select->run();
 if (null === $user_child_query_select_response
     || empty($user_child_query_select_response)) Output::print(false);
 
-$matrioska = new Matrioska();
-$matrioska->setSafeMode(false)->setReadMode(true);
-$matrioska_value = reset($user_child_query_select_response);
-$matrioska->setFromAssociative($matrioska_value, $matrioska_value);
-$matrioska_value = $matrioska->getAllFieldsValues(false, false);
+$user = new User();
+$user->setSafeMode(false)->setReadMode(true);
+$user_value = reset($user_child_query_select_response);
+$user->setFromAssociative($user_value, $user_value);
+$user_value = $user->getAllFieldsValues(false, false);
 
-Output::concatenate(Output::APIDATA, $matrioska_value);
+Output::concatenate(Output::APIDATA, $user_value);
 Output::print(true);
