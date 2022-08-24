@@ -76,11 +76,6 @@ foreach ($user_unique as $group) if (1 === count($group)) {
     $user_query_select->getLimit()->set(count($keys));
 }
 
-if (false === Policy::check('iam/privilege/user/type')) {
-    $type = $user->getField('type')->getName();
-    $user_query_select_return_statement->append('FILTER' . chr(32) . $user_query_select_vertex . chr(46) . $type . chr(32) . '!=' . chr(32) . '$0', true, User::SERVICE);
-}
-
 $user_query_select_return_statement->append('RETURN' . chr(32) . $user_query_select_vertex);
 $user_query_select->getReturn()->setFromStatement($user_query_select_return_statement);
 $user_query_select_response = $user_query_select->run();

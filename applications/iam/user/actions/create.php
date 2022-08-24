@@ -67,8 +67,6 @@ $user_child_uploads_keys = array_keys($_FILES);
 $user_child_uploads = array_combine($user_child_uploads_keys, $user_child_uploads);
 $user_child->setFromAssociative((array)Request::post(), $user_child_uploads);
 
-if (false === Policy::check('iam/privilege/user/type')) $user_child->getField('type')->setValue(User::HUMAN);
-
 foreach (Vertex::MANAGEMENT as $field_name)
     $user_child->getField($field_name)->setProtected(false)->setRequired(true)->setValue($user->getField(Arango::KEY)->getValue());
 

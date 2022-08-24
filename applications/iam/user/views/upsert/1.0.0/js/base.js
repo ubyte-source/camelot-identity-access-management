@@ -107,7 +107,6 @@
     widgets.flatpickr = {};
 
     for (let item = 0; item < window.page.tables.user.fields.length; item++) {
-        if (window.page.tables.user.fields[item].name === 'type' && !window.page.checkPolicy('iam/privilege/user/type')) continue;
         if (window.page.tables.user.fields[item].name === 'picture') window.page.tables.user.fields[item].construct = function () {
             this.background = 'background-image';
             this.getWrapper = function () {

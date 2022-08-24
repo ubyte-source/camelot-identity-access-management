@@ -43,7 +43,6 @@ array_push($noreplace, $user_child->getField('password')->getName());
 
 $picture = $user_child->getField('picture')->getName();
 if (false === array_key_exists($picture, $user_child_uploads)) array_push($noreplace, $picture);
-if (false === Policy::check('iam/privilege/user/type')) array_push($noreplace, $user_child->getField('type')->getName());
 
 $management = [];
 foreach ($noreplace as $field_name) {

@@ -25,10 +25,11 @@ $navigator = Navigator::get();
 $user_policies = UserToPolicy::getPolicies();
 $user_policies = array_column($user_policies, 'route');
 
-$setting = [];
+$setting = array();
 foreach (WIDGETS as $widget) {
     $navigator_widget = $navigator;
-    if (4 === array_push($navigator_widget, $widget)) $setting[$widget] = User::getHumanSettings(...$navigator_widget);
+    if (4 === array_push($navigator_widget, $widget))
+        $setting[$widget] = User::getHumanSettings(...$navigator_widget);
 }
 
 $oauth = new Oauth();
