@@ -61,7 +61,7 @@ $user_query_select_statement = $user_query_select->getStatement();
 $user_query_select_statement->setExpect(1)->setHideResponse(true);
 
 $user_child = $user->useEdge(UserToUser::getName())->vertex();
-$user_child->getField('type')->getValue(User::CONTACT);
+$user_child->getField('type')->setValue(User::CONTACT);
 $user_child_uploads = array_column($_FILES, 'tmp_name');
 $user_child_uploads_keys = array_keys($_FILES);
 $user_child_uploads = array_combine($user_child_uploads_keys, $user_child_uploads);
