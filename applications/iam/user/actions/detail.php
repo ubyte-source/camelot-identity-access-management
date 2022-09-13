@@ -80,5 +80,6 @@ $user_value = reset($user_child_query_select_response);
 $user->setFromAssociative($user_value, $user_value);
 $user_value = $user->getAllFieldsValues(false, false);
 
+Output::setEncodeOptionOverride(JSON_UNESCAPED_SLASHES);
 Output::concatenate(Output::APIDATA, $user_value);
 Output::print(true);

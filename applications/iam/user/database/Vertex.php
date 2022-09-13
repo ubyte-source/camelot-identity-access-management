@@ -237,7 +237,7 @@ class Vertex extends EntityVertex
 		$phone_number_prefix = $this->addField('phone_number_prefix');
 		$phone_number_prefix->setPatterns($phone_number_prefix_validator);
 		$phone_number_prefix->getRow()->setName('mobile');
-		
+
 		$phone_number = $this->addField('phone_number');
 		$phone_number_pattern = Validation::factory('ShowString');
 		$phone_number_pattern->setMin(1);
@@ -255,11 +255,11 @@ class Vertex extends EntityVertex
 		$phone_number->setPatterns($phone_number_pattern);
 		$phone_number->getRow()->setName('mobile');
 		$phone_number->addUniqueness(static::INFO);
-		
+
 		$phone_number_office_prefix = $this->addField('phone_number_office_prefix');
 		$phone_number_office_prefix->setPatterns($phone_number_prefix_validator);
 		$phone_number_office_prefix->getRow()->setName('internal');
-				
+
 		$phone_number_office = $this->addField('phone_number_office');
 		$phone_number_office_pattern = Validation::factory('ShowString');
 		$phone_number_office_pattern->setMin(1);

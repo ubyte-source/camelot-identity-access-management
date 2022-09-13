@@ -173,6 +173,7 @@ $registered->setSafeMode(false)->setReadMode(true);
 $registered_value = reset($user_query_insert_response);
 $registered->setFromAssociative($registered_value, $registered_value);
 $registered_value = $registered->getAllFieldsValues(false, false);
+Output::setEncodeOptionOverride(JSON_UNESCAPED_SLASHES);
 Output::concatenate(Output::APIDATA, $registered_value);
 
 if (User::CONTACT === $user_child_type) Output::print(true);
