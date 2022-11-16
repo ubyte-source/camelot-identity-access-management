@@ -49,6 +49,7 @@
 	window.back.addStyle('red');
 	window.back.out().classList.add('split');
 	window.back.onClick(function () {
+		window.submit.getLoader().remove();
 		container.removeChild(this.out());
 		window.submit.out().classList.remove('send');
 		window.submit.out().classList.remove('split');
@@ -165,7 +166,6 @@
 		let xhr = this.getXHR(),
 			response = JSON.parse(xhr.responseText),
 			return_url = Page.getUrlParameter(window.page.sso);
-
 		switch (true) {
 			case response.hasOwnProperty(window.page.authorization) && !!return_url:
 				let decrypt = atob(return_url),
@@ -192,12 +192,17 @@
 				window.location = String.fromCharCode(47);
 		}
 	});
+	widgets.form.plain.setCallbackFail(function () {
+		window.back.getLoader().remove();
+		window.submit.getLoader().remove();
+	});
 	widgets.form.plain.login = function () {
 		let email = widgets.form.plain.findContainer('email');
 		email.setEditable(true);
-		widgets.form.plain.request(function () {
+		widgets.form.plain.request(function () {			
+			window.submit.getLoader().apply(window.page.getTranslate('buttons.loader'));
+			window.back.getLoader().apply(window.page.getTranslate('buttons.loader'));
 			email.setEditable(false);
-			window.submit.getLoader().remove();
 		});
 	}
 
