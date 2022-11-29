@@ -178,6 +178,7 @@ class Session extends Edge
 
 		$authorization = $header_authorization ?? $_COOKIE[static::COOKIE_NAME];
 		$authorization = preg_replace('/^(' . Sso::AUTHORIZATION_TYPE . ')(\s)?/', '', $authorization);
+		if (urldecode(trim($authorization)) !== trim($authorization)) $authorization = urldecode($authorization);
 		static::setAuthorization($authorization);
 
 		return static::verify();
