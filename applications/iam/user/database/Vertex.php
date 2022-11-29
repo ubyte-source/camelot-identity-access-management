@@ -548,11 +548,11 @@ class Vertex extends EntityVertex
 
 			if (!in_array('Content-type: application/json', headers_list())) return $redirect;
 
-			$redirect = str_replace(chr(47), Language::SHASH_ESCAPE, $redirect);
+			Sso::unauthorized();
 
 			Language::dictionary(__file__);
 			$notice = __namespace__ . '\\' . 'navigator' . '\\' . 'guest';
-			$notice = Language::translate($notice, $redirect);
+			$notice = Language::translate($notice, str_replace(chr(47), Language::SHASH_ESCAPE, $redirect));
 			$errors = new Login();
 			$errors = $errors->checkRequired()->getAllFieldsWarning();
 			Output::concatenate('notice', $notice);

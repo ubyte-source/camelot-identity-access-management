@@ -92,7 +92,8 @@ class Navigator extends KNavigator
 
         Overload::run();
 
-        return $exceed;
+        if (false === filter_var($exceed, FILTER_VALIDATE_IP)) return $exceed;
+        return ip2long($exceed);
     }
 
     protected static function getImpersonate() : bool
