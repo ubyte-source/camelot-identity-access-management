@@ -11,7 +11,7 @@ $filters_post = Request::post();
 $filters = array();
 array_push($filters, chr(37));
 
-$filters = array_diff($filters_post, $filters);
+$filters = array_diff((array)$filters_post, $filters);
 $filters = array_filter($filters, function ($item) {
     return is_string($item) && strlen($item);
 });
