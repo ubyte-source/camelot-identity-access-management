@@ -1,4 +1,4 @@
-div#main { transition: all 0.2s ease-out; z-index: 1024; }
+div#main { transition: all 0.2s ease-out;  }
 div#main { position: fixed; top: 50px; right: 0; bottom: 0; left: 250px; }
 
 div#main.menu-crush { left: 50px; }
